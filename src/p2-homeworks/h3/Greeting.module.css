@@ -1,0 +1,18 @@
+.Container {
+    display: flex;
+    flex-direction: row;
+    height: 3em;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonMargin {
+    margin-left: 10px;
+}
+
+.totalUsersCountMargin {
+    margin-left: 10px;
+}

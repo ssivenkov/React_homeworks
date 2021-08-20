@@ -1,0 +1,26 @@
+.input {
+    outline: none;
+    border: 1px solid #000;
+    padding: 2px 5px;
+    font-size: 16px;
+    background: linear-gradient(#ffffff, #bdbdbd);
+}
+
+.superInput {
+    color: #000;
+}
+
+.superInput::selection {
+    background-color: #111;
+    color: #eee;
+}
+
+.errorInput {
+    border: 1px solid red;
+    box-shadow: 0 0 5px 1px red;
+    background: linear-gradient(#fda6a6, #bd3636);
+}
+
+.error {
+    color: red;
+}

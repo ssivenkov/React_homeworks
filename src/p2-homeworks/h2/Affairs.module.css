@@ -1,0 +1,16 @@
+.low {
+    color: green;
+}
+
+.middle {
+    color: orange;
+}
+
+.high {
+    color: red;
+}
+
+.buttonMargin {
+    position: relative;
+    left: 10px;
+}

@@ -1,0 +1,25 @@
+.checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    background-color: #ccc;
+    border: 2px solid #000;
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.checkbox:checked {
+    background-color: #fff;
+    background-image: url(https://i.ibb.co/j9K74WQ/image.png);
+    background-size: cover;
+    border: 2px solid green;
+}
+
+.spanClassName {
+    color: #111;
+}
