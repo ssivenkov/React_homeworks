@@ -4,7 +4,6 @@
 }
 
 .externalContainer {
-    background-color: darkgrey;
 }
 
 .messageContainer {
@@ -37,7 +36,7 @@
     display: block;
     border-width: 0 0 11px 11px;
     border-style: solid;
-    border-color: transparent transparent #282c34 transparent;
+    border-color: transparent transparent #3b404c transparent;
 }
 
 .message {
@@ -45,7 +44,7 @@
     flex-direction: column;
     min-width: 66px;
     padding: 8px 15px;
-    background-color: #282c34;
+    background-color: #3b404c;
     border-radius: 7px;
     border-bottom-left-radius: 0;
 }
@@ -65,11 +64,11 @@
 .messageText {
     margin-right: 20px;
     margin-bottom: 7px;
-    color: #fff;
+    color: #eee;
     font-size: 16px;
 }
 
 .time {
-    color: darkolivegreen;
+    color: #24b3c6;
     font-size: 15px;
 }

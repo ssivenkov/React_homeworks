@@ -1,3 +1,15 @@
+.tasksContainer {
+    margin-left: 13px;
+}
+
+.taskContainer {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.taskContainer:last-child {
+    margin-bottom: 0;
+}
+
 .low {
     color: green;
 }
@@ -11,6 +23,16 @@
 }
 
 .buttonMargin {
-    position: relative;
-    left: 10px;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.sortButtonsContainer {
+    margin-top: 10px;
+}
+
+.sortButtonMargin {
+    display: inline-block;
+    margin-left: 13px;
+    margin-bottom: 13px;
 }

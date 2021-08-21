@@ -1,0 +1,48 @@
+.linkContainer {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    width: 353px;
+    position: relative;
+    left: -290px;
+    transition: left .4s ease;
+}
+
+.linkContainer:hover {
+    transition: left .4s ease;
+    left: 0;
+}
+
+.button {
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    margin-left: 30px;
+    background: linear-gradient(aqua, #073f72);
+}
+
+.link {
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    margin-left: 20px;
+    cursor: pointer;
+    padding: 5px;
+    border: 2px solid transparent;
+}
+
+.PreJunior {
+    color: aqua;
+}
+
+.Junior {
+    color: #2dff30;
+}
+
+.JuniorPlus {
+    color: #ffdc2d;
+}
+
+.activeLink {
+    border: 2px solid white;
+}

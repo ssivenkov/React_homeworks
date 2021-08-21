@@ -14,7 +14,7 @@ function Affair(props: AffairPropsType) {
     const priorityColor = s[props.affair.priority];
 
     return (
-        <div>
+        <div className={s.taskContainer}>
             <span>{props.affair.name} - <span className={priorityColor}>{props.affair.priority}</span></span>
             <SuperButton className={s.buttonMargin} onClick={deleteCallback}>
                 X

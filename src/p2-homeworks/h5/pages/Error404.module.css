@@ -1,0 +1,19 @@
+.sharedContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Error404 {
+    margin-top: 150px;
+    font-size: 300px;
+    color: aqua;
+    text-shadow: 0 0 20px #0022cd;
+}
+
+.text {
+    color: #fff;
+    font-size: 50px;
+    text-shadow: 0 0 20px #000;
+}

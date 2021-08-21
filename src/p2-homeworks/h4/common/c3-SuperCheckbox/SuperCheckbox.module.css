@@ -1,3 +1,8 @@
+.labelContainer {
+    display: flex;
+    align-items: center;
+}
+
 .checkbox {
     appearance: none;
     -webkit-appearance: none;
@@ -15,11 +20,10 @@
 
 .checkbox:checked {
     background-color: #fff;
-    background-image: url(https://i.ibb.co/j9K74WQ/image.png);
+    background-image: url(../../../../images/check.png);
     background-size: cover;
-    border: 2px solid green;
+    border: 2px solid #00b100;
 }
 
 .spanClassName {
-    color: #111;
 }
