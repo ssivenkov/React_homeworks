@@ -1,10 +1,11 @@
 import React, {ChangeEvent, InputHTMLAttributes, DetailedHTMLProps} from 'react'
+import s from '../c6-SuperRadio/SuperRadio.module.css'
 
 type DefaultRadioPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
 
 type SuperRadioPropsType = DefaultRadioPropsType & {
-    options?: any[]
-    onChangeOption?: (option: any) => void
+    options?: Array<string>
+    onChangeOption: (option: string) => void
 }
 
 const SuperRadio: React.FC<SuperRadioPropsType> = (
@@ -16,19 +17,23 @@ const SuperRadio: React.FC<SuperRadioPropsType> = (
     }
 ) => {
     const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
-        // onChange, onChangeOption
+        onChangeOption(e.currentTarget.value)
     }
 
-
-    const mappedOptions: any[] = options ? options.map((o, i) => (
-        <label key={name + '-' + i}>
+    const mappedOptions: JSX.Element[] = options ? options.map((el, index) => (
+        <label key={name + '-' + index}>
             <input
                 type={'radio'}
-                // name, checked, value, onChange
+                name={name}
+                value={el}
+                checked={el === value}
+                onChange={onChangeCallback}
+                className={el === value ? s.checkboxChecked : s.checkboxUnchecked}
             />
-            {o}
+            {el}
         </label>
     )) : []
+    /* если в mappedOptions ничего не передали то отрендерим пустой массив, т.к. нельзя рендерить пустоту */
 
     return (
         <>

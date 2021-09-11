@@ -29,9 +29,9 @@ const SuperEditableSpan: React.FC<SuperEditableSpanType> = (
     }
 ) => {
     const [editMode, setEditMode] = useState<boolean>(false)
-    const {children, onDoubleClick, className, ...restSpanProps} = spanProps || {} /* если у span не будет пропсов, то
-    взять эти свойста у пустого объекта(даже если у него их нету), пусть их значения и будут undefined, главное что это
-    предотвратит ошибку */
+    const {children, onDoubleClick, className, ...restSpanProps} = spanProps || {} /* распаковываем spanProps на
+    нужные нам объекты; если у span не будет пропсов, то взять эти свойста у пустого объекта(даже если у него их нету),
+    пусть их значения и будут undefined, главное что это предотвратит ошибку */
 
     const onEnterCallback = () => {
         setEditMode(false) // выключить editMode при нажатии Enter
