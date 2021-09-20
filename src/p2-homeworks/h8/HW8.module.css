@@ -1,0 +1,16 @@
+.itemsContainer {
+    margin-top: 10px;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    max-width: 230px;
+}
+
+.buttonContainer {
+    display: flex;
+    width: 280px;
+    justify-content: space-between;
+    margin-top: 20px;
+}
