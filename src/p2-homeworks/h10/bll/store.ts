@@ -1,15 +1,15 @@
-import {loadingReducer} from './loadingReducer'
+import { loadingSetAC, loadingReducer } from "./loadingReducer"
+import { combineReducers, createStore, Store } from "redux";
 
-// const reducers = combineReducers({
-//     loading: loadingReducer,
-//
-// })
-//
-// const store = createStore(reducers)
-//
-// export default store
-//
-// export type AppStoreType = ReturnType<typeof reducers>
-//
-// // @ts-ignore
-// window.store = store // for dev
+export type ActionTypes = ReturnType<typeof loadingSetAC>
+
+const reducers = combineReducers({
+    loading: loadingReducer,
+})
+
+export type AppStoreType = ReturnType<typeof reducers>
+
+export let store: Store<AppStoreType, ActionTypes> = createStore(reducers)
+
+// @ts-ignore
+window.store = store // for dev
