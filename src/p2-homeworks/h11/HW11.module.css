@@ -1,0 +1,6 @@
+.numberContainer {
+    display: inline-block;
+    text-align: center;
+    min-width: 30px;
+    margin: 0 10px;
+}
