@@ -1,10 +1,18 @@
-const DARK = "homeworks/theme/DARK";
-const RED = "homeworks/theme/RED";
-const SOME = "homeworks/theme/SOME";
+export const DARK = "dark";
+export const LIGHT = "light";
+export const RED = "red";
+export const ORANGE = "orange";
+export const YELLOW = "yellow";
+export const GREEN = "green";
+export const BLUE = "blue";
+export const VIOLET = "violet";
+const SET_THEME = "homeworks/theme/SET-THEME";
 
-export type ThemeActionsType = {}
+type SetThemeActionType = ReturnType<typeof changeTheme>
 
-type initStateType = {
+export type ThemeActionsType = SetThemeActionType
+
+export type ThemeStateType = {
     theme: string
 }
 
@@ -12,33 +20,23 @@ const initState = {
     theme: DARK,
 };
 
-export const themeReducer = (state: initStateType = initState, action: any): any => { // fix any
-    switch (action.type) {
-        case "DARK": {
-            return {
-                ...state,
-                theme: action.theme,
+export const themeReducer =
+    (state: ThemeStateType = initState, action: ThemeActionsType): ThemeStateType => {
+        switch (action.type) {
+            case SET_THEME: {
+                return {
+                    ...state,
+                    theme: action.theme,
+                }
             }
+            default:
+                return state;
         }
-        case "RED": {
-            return {
-                ...state,
-                theme: action.theme,
-            }
-        }
-        case "SOME": {
-            return {
-                ...state,
-                theme: action.theme,
-            }
-        }
-        default:
-            return state;
-    }
-};
+    };
 
-export const setDarkTheme = (theme: any) => ({type: DARK, theme} as const);
-export const setRedTheme = (theme: any) => ({type: RED, theme} as const);
-export const setSomeTheme = (theme: any) => ({type: SOME, theme} as const);
+type ChangeThemeCType = {
+    type: typeof SET_THEME
+    theme: string
+}
 
-export const changeThemeC = (): any => {}; // fix any
+export const changeTheme = (theme: string): ChangeThemeCType => ({type: SET_THEME, theme});

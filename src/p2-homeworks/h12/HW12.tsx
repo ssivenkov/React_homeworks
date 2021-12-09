@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import s from "./HW12.module.css";
 import SuperRadio from "../h7/common/c6-SuperRadio/SuperRadio";
+import { useDispatch, useSelector } from "react-redux";
+import { changeTheme, ThemeStateType, DARK, LIGHT, RED, ORANGE, YELLOW, GREEN, BLUE, VIOLET } from "./bll/themeReducer";
+import { AppReducersType } from "../h10/bll/store";
 
-const themes = ["dark", "red", "some"];
+const themes = [DARK, LIGHT, RED, ORANGE, YELLOW, GREEN, BLUE, VIOLET];
 
 function HW12() {
-    const theme = "some"; // useSelector
+    const dispatch = useDispatch();
+    const {theme} = useSelector<AppReducersType, ThemeStateType>(state => state.theme);
 
-    // useDispatch, onChangeCallback
-
-    const [value, onChangeOption] = useState(themes[0]);
+    const onChangeCallback = (optionText: string) => {
+        dispatch(changeTheme(optionText));
+    }
 
     return (
         <div className={s[theme]}>
@@ -17,12 +21,13 @@ function HW12() {
             <span className={s[theme + "-text"]}>
                 homeworks 12
             </span>
-            <div>
+            <div className={s.themesContainer}>
                 <SuperRadio
+                    labelClass={s.themeContainer}
                     name={"radio"}
                     options={themes}
-                    value={value}
-                    onChangeOption={onChangeOption}
+                    value={theme}
+                    onChangeOption={onChangeCallback}
                 />
             </div>
             <hr/>

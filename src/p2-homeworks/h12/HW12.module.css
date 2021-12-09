@@ -1,23 +1,71 @@
+.themesContainer {
+    margin: 10px;
+}
+
+.themeContainer {
+    margin: 10px;
+}
+
 .dark {
-    background: dimgrey;
+    background: #424242;
 }
 
 .dark-text {
-    color: aliceblue;
+    color: #000000;
+}
+
+.light {
+    background: #999;
+}
+
+.light-text {
+    color: #ffffff;
 }
 
 .red {
-    background: lightcoral;
+    background: #531515;
 }
 
 .red-text {
-    color: aqua;
+    color: #ff0000;
 }
 
-.some {
-    background: lightgreen;
+.orange {
+    background: #6c3c16;
 }
 
-.some-text {
-    color: darkslateblue;
+.orange-text {
+    color: #f38816;
+}
+
+.yellow {
+    background: #7d651e;
+}
+
+.yellow-text {
+    color: #ffd900;
+}
+
+.green {
+    background: #234e13;
+}
+
+.green-text {
+    color: #63f316;
+}
+
+.blue {
+    background: #131e45;
+}
+
+.blue-text {
+    color: #1646f3;
+}
+
+.violet {
+    background: #1c0f49;
+}
+
+.violet-text {
+    color: #6a2ef5;
 }

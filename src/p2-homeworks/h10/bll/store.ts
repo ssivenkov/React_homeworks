@@ -1,17 +1,18 @@
-import { loadingSetAC, loadingReducer } from "./loadingReducer"
+import { loadingReducer, LoadingActionsType } from "./loadingReducer"
 import { combineReducers, createStore, Store } from "redux";
-import { themeReducer } from "../../h12/bll/themeReducer";
+import { ThemeActionsType, themeReducer } from "../../h12/bll/themeReducer";
 
-export type ActionTypes = ReturnType<typeof loadingSetAC>
+export type AppActionsType = LoadingActionsType
+    | ThemeActionsType
 
-const reducers = combineReducers({
+const RootReducer = combineReducers({
     loading: loadingReducer,
     theme: themeReducer,
 })
 
-export type AppStoreType = ReturnType<typeof reducers>
+export type AppReducersType = ReturnType<typeof RootReducer>
 
-export let store: Store<AppStoreType, ActionTypes> = createStore(reducers)
+export let store: Store<AppReducersType, AppActionsType> = createStore(RootReducer)
 
 // @ts-ignore
 window.store = store // for dev

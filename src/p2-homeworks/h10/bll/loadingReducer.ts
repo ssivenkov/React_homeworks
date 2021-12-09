@@ -1,4 +1,8 @@
-import { ActionTypes } from "./store";
+import { AppActionsType } from "./store";
+
+export type LoadingActionsType = loadingSetACType
+
+type loadingSetACType = ReturnType<typeof loadingSetAC>;
 
 export type StateType = {
     showLoading: boolean
@@ -10,7 +14,7 @@ const initState = {
 
 const LOADING_SET_TYPE = "LOADING-SET-TYPE"
 
-export const loadingReducer = (state: StateType = initState, action: ActionTypes): StateType => {
+export const loadingReducer = (state: StateType = initState, action: AppActionsType): StateType => {
     switch (action.type) {
         case LOADING_SET_TYPE: {
             return {...state, showLoading: action.showLoading}
