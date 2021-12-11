@@ -4,8 +4,12 @@ import SuperRange from "./common/c7-SuperRange/SuperRange";
 import { SuperDoubleRange } from "./common/c8-SuperDoubleRange/SuperDoubleRange";
 
 function HW11() {
-    const [value1, setValue1] = useState(0);
-    const [value2, setValue2] = useState(100);
+    const [value1, setValue1] = useState<number>();
+    const [value2, setValue2] = useState<number>();
+
+    const onChangeRange = (value: number) => {
+        setValue1(value);
+    }
 
     const onChangeDoubleRange = (values: [number, number]) => {
         setValue1(values[0]);
@@ -17,10 +21,10 @@ function HW11() {
             homeworks 11
             <div>
                 <span className={s.numberContainer}>{value1}</span>
-                <SuperRange value={value1} onChangeRange={setValue1}/>
+                <SuperRange value={value1} onChangeRange={onChangeRange}/>
             </div>
 
-            <div>
+            <div className={s.doubleRangeContainer}>
                 <span className={s.numberContainer}>{value1}</span>
                 <SuperDoubleRange startValues={[15, 70]}
                                   min={0}

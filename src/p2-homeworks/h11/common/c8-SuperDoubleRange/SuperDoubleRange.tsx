@@ -1,43 +1,7 @@
 import React from "react";
-import s from "./SuperDoubleRange.module.css"
+import "./SuperDoubleRange.css"
 import Nouislider from "nouislider-react";
 import "nouislider/distribute/nouislider.css";
-
-/*type SuperDoubleRangePropsType = {
-    onChangeRange: (value: [number, number]) => void
-    startValues: [number, number]
-    min: number
-    max: number
-    step: number
-    value1?: number
-    value2?: number
-    disable: boolean
-}*/
-
-/*export const SuperDoubleRange: React.FC<SuperDoubleRangePropsType> = (
-    {
-        onChangeRange, startValues, min, max, step, disable,
-    },
-) => {
-
-    const onUpdate = (render: any, handle: any, value: number[], un: any, percent: any) => {
-        onChangeRange([value[0], value[1]]);
-    }
-
-    return (
-        <>
-            <span className={s.rangeContainer}>
-                <Nouislider
-                    range={{min: min, max: max}}
-                    start={startValues}
-                    step={step}
-                    disabled={disable}
-                    onUpdate={onUpdate}
-                    connect={true}/>
-            </span>
-        </>
-    )
-}*/
 
 type MapDispatchToPropsType = {
     onChangeRange: (value: [number, number]) => void
@@ -55,39 +19,68 @@ type MapStateToPropsType = {
 
 export type SuperDoubleRangePropsType = MapStateToPropsType & MapDispatchToPropsType;
 
-type StateType = { textValue: string | null, percent: string | null};
+type StateType = { textValue: string | null, percent: string | null, start: (number | undefined)[] };
 
-export class SuperDoubleRange extends React.Component<SuperDoubleRangePropsType, StateType> {
+export class SuperDoubleRange extends React.PureComponent<SuperDoubleRangePropsType, StateType> {
     state = {
         textValue: null,
         percent: null,
+        start: this.props.startValues,
+        end: null,
     };
 
-    onSlide = (render: any, handle: any, value: number[], un: any, percent: any) => {
-        this.props.onChangeRange([value[0], value[1]]);
-        this.setState({
-            textValue: value[0].toFixed(2),
-            percent: percent[0].toFixed(2),
-        });
+    componentDidUpdate(prevProps: Readonly<SuperDoubleRangePropsType>, prevState: Readonly<StateType>) {
+        if (this.props.value1 !== prevProps.value1) {
+            this.setState({
+                start: [this.props.value1, prevProps.value2],
+            })
+        }
+    }
+
+    onUpdate = (values: any[], handle: number, unencodedValues: number[], tap: boolean, positions: number[]) => {
+        this.props.onChangeRange([unencodedValues[0], unencodedValues[1]]);
+        /*this.setState({
+         start: [this.props.value1, this.props.value2],
+         /!*textValue: value[0].toFixed(2),
+         percent: percent[0].toFixed(2),*!/
+         });*/
     };
 
     render() {
-        const { textValue, percent } = this.state;
+        /*const { textValue, percent } = this.state;*/
         return (
-            <span className={s.rangeContainer}>
+            <span className={"rangeContainer"}>
                 <Nouislider
                     range={{min: this.props.min, max: this.props.max}}
-                    start={this.props.startValues}
+                    start={this.state.start}
                     step={this.props.step}
                     disabled={this.props.disable}
-                    onUpdate={this.onSlide}
-                    connect
+                    onUpdate={this.onUpdate}
+                    animate={false}
+                    connect={true}
+                    tooltips={[
+                        {
+                            to(value: number) {
+                                return Math.round(value);
+                            },
+                            from(value: number) {
+                                return Math.round(value);
+                            },
+                        },
+                        {
+                            to(value: number) {
+                                return Math.round(value);
+                            },
+                            from(value: number) {
+                                return Math.round(value);
+                            },
+                        }]}
                 />
                 {/*{textValue && percent && (
-                    <div>
-                        Value: {textValue}, percent: {percent} %
-                    </div>
-                )}*/}
+                 <div>
+                 Value: {textValue}, percent: {percent} %
+                 </div>
+                 )}*/}
             </span>
         );
     }
